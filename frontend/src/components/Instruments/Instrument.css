@@ -1,0 +1,50 @@
+.instrument-container{
+    background-color: #111;
+    color: white;
+    padding: 2rem 3rem;
+}
+.instrument-container h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: .5rem;
+    text-decoration:underline;
+}
+.instrument-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+    gap:1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    padding: 0rem 2rem;
+    justify-items: center;
+}
+
+.instrument-list{
+    border: .2rem solid white;
+    border-radius: 1rem;
+    width: 35rem;
+    height: 25.5rem;
+    text-align: center;
+    margin: 1rem 0rem;
+    overflow: hidden;
+    box-shadow: 0rem 0rem .6rem .3rem #444;
+    transition: transform .5s ease;
+}
+
+.instrument-list:hover{
+    transform: scale(1.05);
+}
+
+.grid-item.instrument{
+    font-size: 2rem;
+    font-weight: 300;
+}
+.grid-item.image{
+    width: 100%;
+    height: 20rem;
+}
+
+.first{
+    font-size: 3.5rem;
+}

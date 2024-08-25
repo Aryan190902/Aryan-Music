@@ -1,0 +1,91 @@
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.2rem 2rem;
+  background-color: #111;
+  border-bottom: .1rem solid white;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem;
+  font-size: 1.8rem;
+  transition: transform .25s ease, color .25s ease;
+}
+.navbar a:hover{
+  color: red;
+  /* background-color: #333; */
+  border-radius: 1.5rem;
+  font-weight: 600;
+  transform: scale(1.1);
+}
+.navbar-left a {
+  margin-right: 2rem;
+}
+
+.navbar-right a {
+  margin-left: 2rem;
+}
+.navbar-right{
+  display: flex;
+}
+.new-options{
+  display: flex;
+}
+.profile{
+  color: white;
+  display: flex;
+  margin-top: .4rem;
+}
+#profilePic{
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: .1rem solid white;
+  padding: .2rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.profile-name{
+  margin-right: 1.5rem;
+  margin-left: .7rem;
+  margin-top: .5rem;
+  font-size: 1.5rem;
+}
+.logout-btn{
+  color: white;
+  background-color: transparent;
+  border-radius: 1.5rem;
+  border: .2rem solid white;
+  margin-bottom: .7rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.logout-btn:hover{
+  color: red;
+  background-color: white;
+}
+
+/* @media (max-width: 1000px)
+{
+    html{
+        font-size: 60%;
+    }
+}
+
+@media (max-width: 780px)
+{
+    html{
+        font-size: 40%;
+    }
+}
+
+@media (max-width: 480px)
+{
+    html{
+        font-size: 30%;
+    }
+} */

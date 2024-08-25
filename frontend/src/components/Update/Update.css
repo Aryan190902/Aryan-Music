@@ -1,0 +1,55 @@
+.update-container{
+    background-color: #111;
+    color: white;
+}
+.update-box{
+    margin: 1rem;
+    border: .1rem solid white;
+    padding: 1rem;
+}
+.update-notice{
+    text-align: center;
+}
+
+.update-item{
+    border: .05rem solid white;
+    /* background-color: #222; */
+    padding: 1rem;
+    margin: 2rem .5rem;
+}
+.update-item-username{
+    padding: 0rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    align-items: center;
+    background-color: #222;
+}
+.update-item-mssg{
+    background-color: #333;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+.new-notice{
+    color: red;
+    font-weight: 800;
+    border: .1rem solid red;
+    padding: .5rem;
+}
+.update-item-right{
+    display: flex;
+    align-items: center;
+}
+.update-item-date{
+    margin-left: 2rem;
+}
+.not-login{
+    text-align: center;
+    border: .1rem solid white;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.login-link{
+    color: red;
+}
