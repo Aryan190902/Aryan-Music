@@ -9,42 +9,46 @@
     font-size: 2.5rem;
 }
 .shop-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+    display: flex;
+    /* grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr)); */
+    flex-direction: column;
     justify-items: center;
-    gap: 1rem;
+    /* gap: 1rem; */
     margin-top: 2rem;
     margin-right: 1rem;
     margin-left: 1rem;
+    padding: 2rem;
 }
 .shop-grid-item{
     border: .1rem solid white;
     border-radius: 1rem;
-    width: 32rem;
-    height: 32rem;
+    width: 100%;
+    height: 20rem;
     overflow: hidden;
     box-shadow: 0rem 0em 1rem .2rem white;
-    margin: 1rem 0rem;
+    margin: 1rem 1rem;
     transition: transform .5s ease;
+    display: flex;
 }
 .shop-grid-item:hover{
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 .shop-grid-item img{
-    width: 32rem;
+    width: 30rem;
     height: 20rem;
 }
 .info{
     padding: 0rem 1rem;
 }
 .info-name{
-    font-weight: 500;
-    font-size: 1.8rem;
-    margin: .5rem 0rem;
+    font-weight: 400;
+    font-size: 2.4rem;
+    margin: 1.5rem .7rem;
 }
 .info-price{
     font-weight: 400;
-    margin: .7rem 0rem;
+    margin: 1.7rem .7rem;
+    font-size: 3rem;
 }
 .info-btn{
     background-color: rgb(197, 2, 2);
@@ -52,35 +56,46 @@
     border-radius: .5rem;
     border: .1rem solid white;
     margin: 1rem 1rem;
-    width: 10rem;
-    height: 3rem;
+    width: 13rem;
+    height: 4rem;
     font-weight: 500;
-    font-size: 1.5rem;
-    transition: background-color .5 ease;
+    font-size: 1.8rem;
+    transition: background-color .25s ease, transform .25s ease;
+    justify-content: center;
 }
+
+.info-btn-container{
+    text-align: center;
+    align-content: center;
+}
+
 .info-btn:hover{
     background-color: red;
+    transform: scale(1.05);
 }
 .info-btn:active{
     background-color: rgb(182, 0, 0);
 }
 .shop-component{
-    display: grid;
+     display: grid;
     grid-template-columns: .7fr 4fr;
 }
 .filter-component{
-    width: 20rem;
-    border-right: .2rem solid white;
+    width: 25rem;
+    /* border-right: .2rem solid white; */
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 1rem;
+    background-color: black;
 }
 .input-area{
     border-radius: .4rem;
     width: 80%;
-    height: 2rem;
-    font-size: 1.3rem;
+    height: 2.3rem;
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
+    font-weight: 600;
 }
 .option-area{
     font-size: 1.7rem;
@@ -90,4 +105,19 @@
     width: 18rem;
     margin-left: 2rem;
     margin-top: 1.5rem;
+    font-weight: 400;
+}
+.filter-label.head{
+    font-size: 2.3rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 1000px){
+    .filter-component{
+        display: none;
+    }
+    .shop-component{
+        /* display: flex; */
+        grid-template-columns: revert;
+    }
 }

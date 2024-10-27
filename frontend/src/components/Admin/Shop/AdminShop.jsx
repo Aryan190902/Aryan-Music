@@ -18,7 +18,7 @@ function AdminShop() {
     const [image, setImage] = useState(null);
     const [imageUrl, setImageUrl] = useState("");
 
-    const apiUrl = "http://localhost:5000";
+    const apiUrl = "http://192.168.31.112:5000";
 
     const handleImageChange = (e) => {
       setImage(e.target.files[0]);

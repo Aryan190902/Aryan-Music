@@ -9,6 +9,7 @@
     margin: 2rem;
     padding: 1rem;
     border: .2rem solid white;
+    border-radius: 1rem;
 }
 .cart-item{
     display: flex;
@@ -98,8 +99,9 @@
 .option-input{
     align-content: center;
     margin-left: 1rem;
+    /* width: 4rem; */
 }
 .quantity-field{
-    width: 4rem;
-    height: 2.5rem;
+    width: 7rem;
+    height: 3.5rem;
 }

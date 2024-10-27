@@ -6,7 +6,7 @@ import './UserList.css';
 function UserList() {
 
     const [users, setUsers] = useState([]);
-    const apiUrl = "http://localhost:5000";
+    const apiUrl = "http://192.168.31.112:5000";
     const navigate = useNavigate();
     useEffect(() => {
         const fetchUsers = async() =>{

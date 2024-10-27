@@ -41,7 +41,7 @@ function Cart() {
                                 <div className='option-input'>
                                     <select 
                                         value={cart_item.quantity} 
-                                        onChange={(e) => handleItemQuantity(cart_item._id, e.target.value)} 
+                                        onChange={(e) => handleItemQuantity(cart_item.id, e.target.value)} 
                                         className='quantity-field'>
                                         {[...Array(5).keys()].map(num => (
                                             <option value={num+1} key={num+1}>

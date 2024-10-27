@@ -4,21 +4,21 @@
   justify-content: space-between;
   align-items: center;
   padding: 2.2rem 2rem;
-  background-color: #111;
-  border-bottom: .1rem solid white;
+  background-color: #000;
+  /* border-bottom: .1rem solid white; */
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
   padding: 1rem;
-  font-size: 1.8rem;
-  transition: transform .25s ease, color .25s ease;
+  font-size: 2rem;
+  transition: transform .1s ease, color .1s ease;
 }
 .navbar a:hover{
-  color: red;
-  /* background-color: #333; */
-  border-radius: 1.5rem;
+  color: black;
+  background-color: white;
+  border-radius: 2rem;
   font-weight: 600;
   transform: scale(1.1);
 }
@@ -63,10 +63,12 @@
   margin-bottom: .7rem;
   font-size: 1.5rem;
   font-weight: bold;
+  transition: transform 0.1s ease, background-color 0.1s ease;
 }
 .logout-btn:hover{
-  color: red;
+  color: black;
   background-color: white;
+  transform: scale(1.1);
 }
 
 /* @media (max-width: 1000px)

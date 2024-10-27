@@ -9,7 +9,7 @@ function UpdateRole() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [role, setRole] = useState('');
-    const apiUrl = "http://localhost:5000";
+    const apiUrl = "http://192.168.31.112:5000";
     useEffect(() => {
         const fetchUser = async() => {
             if(localStorage.token){

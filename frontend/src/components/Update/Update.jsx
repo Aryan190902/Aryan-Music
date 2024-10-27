@@ -9,7 +9,7 @@ function Update() {
     const { isAuthenticated } = useContext(AuthContext);
 
     const [updateData, setUpdateData] = useState([]);
-    const apiUrl = "http://localhost:5000";
+    const apiUrl = "http://192.168.31.112:5000";
 
     useEffect(() => {
         if(localStorage.token){

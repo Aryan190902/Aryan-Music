@@ -6,7 +6,7 @@ import axios from 'axios';
 function Shop() {
 
     const [shopData, setShopData] = useState([]);
-    const apiUrl = "http://localhost:5000";
+    const apiUrl = "http://192.168.31.112:5000";
     useEffect(() => {
         const fetchShopData = async() => {
             try{
@@ -51,6 +51,7 @@ function Shop() {
     <div className='shop-container'>
         <div className='shop-component'>
             <div className='filter-component'>
+                <label className='filter-label head'>Filters:</label>
                 <label className='filter-label'>
                     Low Price:
                     <input
@@ -75,7 +76,7 @@ function Shop() {
                         <option value="" className='option-area'>All</option>
                         <option value="Guitar" className='option-area'> Guitar</option>
                         <option value="Piano" className='option-area'>Piano</option>
-                        <option value="Drum" className='option-area'>Drum</option>
+                        <option value="Drums" className='option-area'>Drum</option>
                         <option value="Accessory" className='option-area'>Accessories</option>
                     </select>
                 </label>
@@ -98,8 +99,10 @@ function Shop() {
                                 <div className='info'>
                                     <h3 className='info-name'>{item.name}</h3>
                                     <h2 className='info-price'>₹{item.Price}/-</h2>
+                                    <div className='info-btn-container'>
+                                        <button className='info-btn' onClick={() => addToCart(item)}>Add to Cart</button>
+                                    </div>
                                 </div>
-                                <button className='info-btn' onClick={() => addToCart(item)}>Add to Cart</button>
                             </div>
                         ))
                     }

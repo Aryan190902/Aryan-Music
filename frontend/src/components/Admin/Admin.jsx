@@ -1,8 +1,14 @@
 import React from 'react'
 import './Admin.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+function Admin({user}) {
+  const navigate = useNavigate();
+  if(!user || user.role !== 'Admin'){
+    navigate('/');
+  }
 
-function Admin() {
+
   return (
     <div className='admin-container'>
         <div className='admin-box'>

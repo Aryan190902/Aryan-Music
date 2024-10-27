@@ -7,7 +7,7 @@ import { AuthContext } from '../../Auth/AuthContext';
 function AdminUpdate() {
   const [mssg, setMssg] = useState("");
   const { user } = useContext(AuthContext);
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = "http://192.168.31.112:5000";
 
 
   const handleSubmit = async(e) => {

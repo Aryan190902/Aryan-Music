@@ -25,7 +25,7 @@ const Navbar = () => {
               {isAuthenticated ?(
                 <div className='new-options'>
                   <Link to="#">Lessons</Link>
-                  <Link to="#">Forum</Link>
+                  {/* <Link to="#">Forum</Link> */}
                   <Link to="/updates">Updates</Link>
                    <div className='profile'>
                     <FaRegUserCircle id="profilePic"/>

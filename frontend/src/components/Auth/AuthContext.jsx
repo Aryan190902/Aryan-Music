@@ -33,7 +33,7 @@ const authReducer = (state, action) => {
   }
 };
 
-const apiUrl = "http://localhost:5000";
+const apiUrl = "http://192.168.31.112:5000";
 
 const AuthProvider = ({ children }) => {
   const initialState = {
