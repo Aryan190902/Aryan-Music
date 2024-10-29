@@ -39,15 +39,6 @@ function Admin() {
   if(isLoading){
     return <div className='loader-div'>Loading... <br />Please check if you have logged in.</div>;
   }
-
-  // if(!user || user.user.role !== 'Admin'){
-  //   if(!user){
-  //     console.log(user);
-  //   }
-  //   else
-  //     console.log("Role:", user.user.role);
-  //   return null;
-  // }
   if(errMessage){
     return <div className='error-div'>{errMessage}</div>;
   }

@@ -7,7 +7,7 @@
 
 .updateRole-form{
     border: .1rem solid white;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     align-items: center;
     align-content: center;
@@ -19,7 +19,10 @@
 }
 .form-label select{
     margin: 0rem 2rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    width: 12rem;
+    height: 4.5rem;
+    padding: 1rem;
 }
 
 .updateRole-btn{
@@ -28,7 +31,8 @@
     border: .2rem solid red;
     border-radius: .5rem;
     font-weight: 600;
-    height: 3rem;
+    height: 4rem;
+    font-size: 1.8rem;
 }
 .updateRole-btn:hover{
     background-color: red;
@@ -37,25 +41,26 @@
 .updateRole-btn:active{
     background-color: rgb(188, 0, 0);
 }
-.userList-goBack-div{
+.updateRole-goBack-div{
     justify-items: center;
     align-items: center;
     text-align: center;
     padding-right: 4rem;
 }
-.userList-goBack-btn{
+.updateRole-goBack-btn{
     background-color: #111;
     color: red;
     border: .2rem solid red;
     border-radius: .5rem;
     font-weight: 600;
-    height: 3rem;
-    font-size: 1.5rem;
+    height: 4rem;
+    font-size: 2rem;
+    margin: 2rem;
 }
-.userList-goBack-btn:hover{
+.updateRole-goBack-btn:hover{
     background-color: red;
     color: white;
 }
-.userList-goBack-btn:active{
+.updateRole-goBack-btn:active{
     background-color: rgb(188, 0, 0);
 }

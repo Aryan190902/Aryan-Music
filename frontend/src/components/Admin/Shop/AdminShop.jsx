@@ -1,22 +1,63 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './AdminShop.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useContext } from 'react';
+import { AuthContext } from '../../Auth/AuthContext';
 
 function AdminShop() {
 
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState('');
-    const [tag, setTag] = useState('Guitar');
-    const [condition, setCondition] = useState('New');
-    const [stock, setStock] = useState(1);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errMessage, setErrMessage] = useState("");
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [tag, setTag] = useState('Guitar');
+  const [condition, setCondition] = useState('New');
+  const [stock, setStock] = useState(1);
+  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
+
+  useEffect(()=>{
+    const timeout = setTimeout(()=>{
+      if(user === null){
+        setIsLoading(false);
+        setErrMessage("User not logged in.");
+      }
+    }, 5000)
+
+    if(user === null){
+      console.log("Loading...");
+      return;
+    }
+
+    if(user){
+      clearTimeout(timeout);
+      if(user.user.role !== 'Admin'){
+        alert("Only Admins can access this page!");
+        navigate('/');
+      }
+      else{
+        setIsLoading(false);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [user, navigate])
+
+  if(isLoading){
+    return <div className='adminShop-loader-div'>Loading... <br />Please check if you have logged in.</div>;
+  }
+
+  if(errMessage){
+    return <div className='adminShop-error-div'>{errMessage}</div>;
+  }
+
+
     const handleGoBack = () => {
       navigate('/admin');
     }
-    const [image, setImage] = useState(null);
-    const [imageUrl, setImageUrl] = useState("");
 
     const apiUrl = "http://192.168.31.112:5000";
 

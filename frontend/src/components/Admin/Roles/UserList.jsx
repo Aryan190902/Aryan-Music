@@ -2,13 +2,44 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './UserList.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../Auth/AuthContext';
 
 function UserList() {
 
     const [users, setUsers] = useState([]);
     const apiUrl = "http://192.168.31.112:5000";
     const navigate = useNavigate();
+
+    const { user } = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(true);
+    const [errMessage, setErrMessage] = useState("");
+
     useEffect(() => {
+
+        const timeout = setTimeout(()=>{
+            if(user === null){
+                setIsLoading(false);
+                setErrMessage("User not logged in.");
+            }
+            }, 5000)
+    
+            if(user === null){
+            console.log("Loading...");
+            return;
+            }
+    
+            if(user){
+            clearTimeout(timeout);
+            if(user.user.role !== 'Admin'){
+                alert("Only Admins can access this page!");
+                navigate('/');
+            }
+            else{
+                setIsLoading(false);
+            }
+        }
+
         const fetchUsers = async() =>{
             if(localStorage.token){
                 const config = {
@@ -25,7 +56,16 @@ function UserList() {
             }
         }
         fetchUsers();
-    }, [])
+        return () => clearTimeout(timeout);
+    }, [user, navigate])
+
+    if(isLoading){
+        return <div className='loader-div'>Loading... <br />Please check if you have logged in.</div>;
+    }
+
+    if(errMessage){
+        return <div className='error-div'>{errMessage}</div>;
+    }
 
     const handleGoBack = () => {
         navigate('/admin');

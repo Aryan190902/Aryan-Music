@@ -2,36 +2,72 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import './UpdateRole.css';
-
+import { useContext } from 'react';
+import { AuthContext } from '../../Auth/AuthContext';
 function UpdateRole() {
 
     const { id } = useParams();
     const navigate = useNavigate();
-    const [user, setUser] = useState(null);
+    const [customer, setCustomer] = useState(null);
     const [role, setRole] = useState('');
     const apiUrl = "http://192.168.31.112:5000";
+    const { user } = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(true);
+    const [errMessage, setErrMessage] = useState("");
     useEffect(() => {
-        const fetchUser = async() => {
-            if(localStorage.token){
-                const config = {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.token}`,
-                    },
-                }
-                try{
-                    const res = await axios.get(`${apiUrl}/api/admin/user/${id}`, config);
-                    setUser(res.data);
-                    setRole(res.data.role);
-                }catch(err){
-                    console.error(err);
+    
+    const fetchUser = async() => {
+        if(localStorage.token){
+            const config = {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.token}`,
+                },
             }
-            }
-            else{
-                console.log("No token!");
+            try{
+                const res = await axios.get(`${apiUrl}/api/admin/user/${id}`, config);
+                setCustomer(res.data);
+            }catch(err){
+                console.error(err);
             }
         }
-        fetchUser();
-    }, [id]);
+        else{
+            console.log("No token!");
+        }
+    }
+    fetchUser();
+    const timeout = setTimeout(()=>{
+        if(user === null){
+          setIsLoading(false);
+          setErrMessage("User not logged in.");
+        }
+      }, 5000)
+  
+      if(user === null){
+        console.log("Loading...");
+        return;
+      }
+  
+      if(user){
+        clearTimeout(timeout);
+        if(user.user.role !== 'Admin'){
+          alert("Only Admins can access this page!");
+          navigate('/');
+        }
+        else{
+          setIsLoading(false);
+        }
+      }
+    return () => clearTimeout(timeout);
+}, [id, user, navigate]);
+
+
+    if(isLoading){
+    return <div className='loader-div'>Loading... <br />Please check if you have logged in.</div>;
+    }
+    
+    if(errMessage){
+        return <div className='error-div'>{errMessage}</div>;
+    }
 
     const handleRoleChange = async(e) => {
         e.preventDefault();
@@ -51,11 +87,13 @@ function UpdateRole() {
             }
         }
     }
-
+    const handleGoBack = () => {
+        navigate('/admin/update-role');
+    }
 
   return (
     <div className='updateRole-container'>
-        <h1>Update Role for "{user?.name}"</h1>
+        <h1>Update Role for "{customer?.name}"</h1>
         <form onSubmit={handleRoleChange} className='updateRole-form'>
             <label className='form-label'>
                 Role:
@@ -67,6 +105,9 @@ function UpdateRole() {
             </label>
             <button type='submit' className='updateRole-btn'>Update Role</button>
         </form>
+        <div className="updateRole-goBack-div">
+            <button onClick={handleGoBack} className="updateRole-goBack-btn">Go Back</button>
+        </div>
     </div>
   )
 }

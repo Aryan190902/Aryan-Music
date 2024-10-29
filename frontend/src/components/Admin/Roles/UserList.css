@@ -41,3 +41,26 @@
     padding-right: 4rem;
     text-decoration: underline;
 }
+.userList-goBack-div{
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    padding-right: 4rem;
+}
+.userList-goBack-btn{
+    background-color: #111;
+    color: red;
+    border: .2rem solid red;
+    border-radius: .5rem;
+    font-weight: 600;
+    height: 4rem;
+    font-size: 2rem;
+    margin: 2rem;
+}
+.userList-goBack-btn:hover{
+    background-color: red;
+    color: white;
+}
+.userList-goBack-btn:active{
+    background-color: rgb(188, 0, 0);
+}
