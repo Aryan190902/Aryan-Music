@@ -35,3 +35,19 @@
 .option-item{
     margin: 1rem .5rem;
 }
+
+.loader-div{
+    background-color: #111;
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    padding: 3rem;
+}
+
+.error-div{
+    background-color: #111;
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    padding: 3rem;
+}

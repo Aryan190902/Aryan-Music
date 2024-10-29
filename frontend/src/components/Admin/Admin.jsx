@@ -1,13 +1,56 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Admin.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-function Admin({user}) {
+import { AuthContext } from '../Auth/AuthContext';
+function Admin() {
   const navigate = useNavigate();
-  if(!user || user.role !== 'Admin'){
-    navigate('/');
+  const { user } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errMessage, setErrMessage] = useState("");
+
+  useEffect(()=>{
+
+    const timeout = setTimeout(()=>{
+      if(user === null){
+        setIsLoading(false);
+        setErrMessage("User not logged in.");
+      }
+    }, 5000)
+
+    if(user === null){
+      console.log("Loading...");
+      return;
+    }
+
+    if(user){
+      clearTimeout(timeout);
+      if(user.user.role !== 'Admin'){
+        alert("Only Admins can access this page!");
+        navigate('/');
+      }
+      else{
+        setIsLoading(false);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [user, navigate])
+
+  if(isLoading){
+    return <div className='loader-div'>Loading... <br />Please check if you have logged in.</div>;
   }
 
+  // if(!user || user.user.role !== 'Admin'){
+  //   if(!user){
+  //     console.log(user);
+  //   }
+  //   else
+  //     console.log("Role:", user.user.role);
+  //   return null;
+  // }
+  if(errMessage){
+    return <div className='error-div'>{errMessage}</div>;
+  }
 
   return (
     <div className='admin-container'>

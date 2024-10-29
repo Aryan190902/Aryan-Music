@@ -40,7 +40,7 @@ function App() {
               <Route path='/shop' element={<Shop />} />
               <Route path='/cart' element={<Cart />} />
               <Route path='/updates' element={<Update />} />
-              <Route path='/admin' element={<Admin user={loadUser}/>} />
+              <Route path='/admin' element={<Admin />} />
               <Route path='/admin/update' element={<AdminUpdate />} />
               <Route path='/admin/shop' element={<AdminShop />} />
               <Route path='/admin/lesson' element={<AdminLesson />} />
