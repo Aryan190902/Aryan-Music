@@ -48,3 +48,16 @@
 .first{
     font-size: 3.5rem;
 }
+
+@media (max-width: 1000px){
+    .instrument-box{
+        grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    }
+    .instrument-list{
+        width: 25rem;
+        height: 24.5rem;
+    }
+    .grid-item.image{
+        height: 18rem;
+    }
+}

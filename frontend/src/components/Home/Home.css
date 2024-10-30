@@ -67,3 +67,18 @@
     text-decoration: none;
     color: white;
 }
+
+@media (max-width: 1000px){
+    .homepage{
+        flex-direction: column;
+    }
+    .homepage h1{
+        margin-top: .5rem;
+    }
+    .homepage-img-div{
+        text-align: center;
+    }
+    .description{
+        font-size: 2em;
+    }
+}

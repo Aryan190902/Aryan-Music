@@ -16,7 +16,9 @@ function Home() {
               </ul>
             </div>
         </div>
-        <img src='/assets/aeDilGuitar.png' alt='Ae Dil' className='home-image'/>
+        <div className='homepage-img-div'>
+          <img src='/assets/aeDilGuitar.png' alt='Ae Dil' className='home-image'/>
+        </div>
     </div>
     <div className='contact'>
         <button className='contact-btn'><a href="#contact-section" className='contact-btn-link'>Contact Us</a></button>

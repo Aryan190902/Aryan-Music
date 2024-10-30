@@ -69,13 +69,13 @@ html {
 @media (max-width: 480px)
 {
     html{
-        font-size: 30%;
+        font-size: 37%;
     }
 }
 
 @media (max-width: 350px)
 {
     html{
-        font-size: 25%;
+        font-size: 30%;
     }
 }
