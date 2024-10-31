@@ -118,6 +118,16 @@
     display: none;
 }
 
+.close-filter-btn{
+    display: none;
+}
+
+@media (min-width: 1001px){
+    .filter-component{
+        display: flex;
+    }
+}
+
 @media (max-width: 1000px){
     .filter-component{
         display: none;

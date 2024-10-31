@@ -17,6 +17,7 @@
     background-color: #222;
     margin-bottom: 1rem;
     justify-content: space-between;
+    padding: 1rem 2rem;
 }
 .item-info{
     display: flex;
@@ -25,6 +26,7 @@
     width: 35rem;
     /* height: 100%; */
     border: .1rem solid white;
+    border-radius: 2rem;
 }
 .cart-item-info{
     padding: 1rem 3rem;
@@ -47,11 +49,12 @@
 .del-btn{
     align-content: end;
     padding: 1rem;
+    width: 8rem;
 }
 .delete-btn{
-    width: 7rem;
-    height: 2rem;
-    font-size: 1.5rem;
+    width: 8rem;
+    height: 3rem;
+    font-size: 1.7rem;
     background-color: #111;
     border: .1rem solid white;
     color: white;
@@ -88,7 +91,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 0rem;
 }
 .qty-text{
     font-weight: 400;
@@ -104,4 +107,26 @@
 .quantity-field{
     width: 7rem;
     height: 3.5rem;
+}
+
+@media (max-width: 1000px){
+    .cart-item-image{
+        width: 30rem;
+    }
+    .right-options{
+        padding: 1rem 0rem;
+    }
+    .cart-item-info{
+        padding-right: .5rem;
+    }
+    .cart-item-name{
+        font-size: 2.5rem;
+    }
+    .cart-item-price{
+        font-size: 2.2rem;
+    }
+    .quantity-field{
+        width: 6rem;
+        height: 3rem;
+    }
 }
