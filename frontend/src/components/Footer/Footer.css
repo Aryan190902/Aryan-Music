@@ -34,6 +34,7 @@
     color: white;
     text-decoration: none;
     margin: .5rem 0;
+    font-size: 2rem;
 }
 
 .footer-container .footer-section a:hover {
@@ -43,7 +44,7 @@
 .footer-bottom {
     padding: 1rem 0;
     border-top: .1rem solid #555;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .footer-container .footer-section.contact{
@@ -55,10 +56,13 @@
     font-weight: bold;
 }
 .footer-section.about p{
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 .footer-section.about {
     padding-top: 0rem;
+}
+.footer-section.about h2{
+    font-size: 2.3rem;
 }
 
 #contact-divider{
