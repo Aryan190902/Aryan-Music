@@ -1,14 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
-import { FaRegUserCircle } from "react-icons/fa";
+// import { FaRegUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const { isAuthenticated, user, logout } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
   const handleLogout = async() => {
     await logout();
   }
+  const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
       <div>
@@ -17,7 +19,8 @@ const Navbar = () => {
             <div className='navbar-left'>
               <Link to="/">Logo</Link>
             </div>
-            <div className='navbar-right'>
+            <button className='navbar-toggle' onClick={toggleMenu}>☰</button>
+            <div className={`navbar-right ${isOpen?'open':''} `}>
               <Link to="/">Home</Link>
               {/* <Link to="#">About Us</Link> */}
               <Link to="/shop">Shop</Link>
@@ -28,7 +31,7 @@ const Navbar = () => {
                   {/* <Link to="#">Forum</Link> */}
                   <Link to="/updates">Updates</Link>
                    <div className='profile'>
-                    <FaRegUserCircle id="profilePic"/>
+                    {/* <FaRegUserCircle id="profilePic"/> */}
                     <p className='profile-name'>{user?.user.username}</p>
                     <button onClick={handleLogout} className='logout-btn'>Logout</button>
                   </div>

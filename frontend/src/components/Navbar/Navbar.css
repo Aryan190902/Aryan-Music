@@ -11,8 +11,8 @@
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 1rem;
-  font-size: 2rem;
+  padding: 1.2rem 1rem;
+  font-size: 1.8rem;
   transition: transform .1s ease, color .1s ease;
 }
 .navbar a:hover{
@@ -20,7 +20,7 @@
   background-color: white;
   border-radius: 2rem;
   font-weight: 600;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .navbar-left a {
   margin-right: 2rem;
@@ -51,9 +51,9 @@
 }
 .profile-name{
   margin-right: 1.5rem;
-  margin-left: .7rem;
-  margin-top: .5rem;
-  font-size: 1.5rem;
+  margin-left: 1rem;
+  margin-top: .6rem;
+  font-size: 1.8rem;
 }
 .logout-btn{
   color: white;
@@ -70,24 +70,34 @@
   background-color: white;
   transform: scale(1.1);
 }
-
-/* @media (max-width: 1000px)
-{
-    html{
-        font-size: 60%;
-    }
+.navbar-toggle{
+  display: none;
+  background: none;
+  border: .2rem solid white;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: white;
 }
 
-@media (max-width: 780px)
-{
-    html{
-        font-size: 40%;
-    }
+@media (max-width: 1000px) {
+  .navbar-toggle{
+    display: block;
+  }
+  .navbar-right{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 7rem;
+    right: 0rem;
+    padding: 1rem;
+    width: 50%;
+    background-color: #000;
+  }
+  .navbar-right.open{
+    display: flex;
+  }
+  .new-options{
+    flex-direction: column;
+  }
 }
-
-@media (max-width: 480px)
-{
-    html{
-        font-size: 30%;
-    }
-} */
