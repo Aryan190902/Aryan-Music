@@ -4,13 +4,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 import './UpdateRole.css';
 import { useContext } from 'react';
 import { AuthContext } from '../../Auth/AuthContext';
+import { apiUrl } from '../../../apiUrl'; 
 function UpdateRole() {
 
     const { id } = useParams();
     const navigate = useNavigate();
     const [customer, setCustomer] = useState(null);
     const [role, setRole] = useState('');
-    const apiUrl = "http://192.168.31.112:5000";
+    // const apiUrl = "http://192.168.31.112:5000";
     const { user } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(true);
     const [errMessage, setErrMessage] = useState("");

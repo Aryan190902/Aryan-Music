@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
-
+import { apiUrl } from '../../apiUrl'; 
 const AuthContext = createContext();
 
 const authReducer = (state, action) => {
@@ -33,7 +33,7 @@ const authReducer = (state, action) => {
   }
 };
 
-const apiUrl = "http://192.168.31.112:5000";
+// const apiUrl = "http://192.168.31.112:5000";
 
 const AuthProvider = ({ children }) => {
   const initialState = {

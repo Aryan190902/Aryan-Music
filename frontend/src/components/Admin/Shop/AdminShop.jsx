@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useContext } from 'react';
 import { AuthContext } from '../../Auth/AuthContext';
+import { apiUrl } from '../../../apiUrl'; 
 
 function AdminShop() {
 
@@ -59,7 +60,7 @@ function AdminShop() {
       navigate('/admin');
     }
 
-    const apiUrl = "http://192.168.31.112:5000";
+    // const apiUrl = "http://192.168.31.112:5000";
 
     const handleImageChange = (e) => {
       setImage(e.target.files[0]);

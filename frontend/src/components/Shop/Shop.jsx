@@ -2,11 +2,11 @@ import React, { useCallback, useContext, useEffect, useState } from 'react'
 import './Shop.css';
 import { CartContext } from '../Cart/CartContext';
 import axios from 'axios';
-
+import { apiUrl } from '../../apiUrl';
 function Shop() {
 
     const [shopData, setShopData] = useState([]);
-    const apiUrl = "http://192.168.31.112:5000";
+    // const apiUrl = "http://192.168.31.112:5000";
     useEffect(() => {
         const fetchShopData = async() => {
             try{

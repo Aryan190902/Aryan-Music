@@ -4,11 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import './UserList.css';
 import { useContext } from 'react';
 import { AuthContext } from '../../Auth/AuthContext';
-
+import { apiUrl } from '../../../apiUrl'; 
 function UserList() {
 
     const [users, setUsers] = useState([]);
-    const apiUrl = "http://192.168.31.112:5000";
+    // const apiUrl = "http://192.168.31.112:5000";
     const navigate = useNavigate();
 
     const { user } = useContext(AuthContext);

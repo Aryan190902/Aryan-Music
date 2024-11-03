@@ -3,13 +3,12 @@ import './Update.css';
 import { AuthContext } from '../Auth/AuthContext';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-
+import { apiUrl } from '../../apiUrl';
 function Update() {
     const { isAuthenticated } = useContext(AuthContext);
 
     const [updateData, setUpdateData] = useState([]);
-    const apiUrl = "http://192.168.31.112:5000";
+    // const apiUrl = "http://192.168.31.112:5000";
 
     useEffect(() => {
         if(localStorage.token){

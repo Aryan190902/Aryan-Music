@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import './AdminUpdate.css';
 import axios from 'axios';
 import { AuthContext } from '../../Auth/AuthContext';
+import { apiUrl } from '../../../apiUrl'; 
 
 function AdminUpdate() {
   const [mssg, setMssg] = useState("");
   const { user } = useContext(AuthContext);
-  const apiUrl = "http://192.168.31.112:5000";
+  // const apiUrl = "http://192.168.31.112:5000";
 
 
   const handleSubmit = async(e) => {

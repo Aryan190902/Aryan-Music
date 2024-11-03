@@ -26,7 +26,7 @@ function Cart() {
             (
             <div>
                 {cartData.map((cart_item, key) => (
-                    <div className='cart-item'>
+                    <div className='cart-item' key={key}>
                         <div className='item-info'>
                         <img src={`${cart_item.img}`} alt="problem" className='cart-item-image'/>
                         <div className='cart-item-info'>

@@ -1,11 +1,5 @@
 import './Instrument.css';
 import React from 'react'
-// import { PiGuitar } from "react-icons/pi";
-// import { MdOutlinePiano } from "react-icons/md";
-// import { GiDrumKit } from "react-icons/gi";
-// import { FaDrum } from "react-icons/fa6";
-// import { LuMic2 } from "react-icons/lu";
-// import { LiaDrumSteelpanSolid } from "react-icons/lia";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -47,7 +41,7 @@ function Instrument() {
         <div className='instrument-box'>
             {
               instrumentNames.map((instrument, key) => (
-                <div className='instrument-list' key={`${instrument.name}`}>
+                <div className='instrument-list' key={`${instrument.name} ${key}`}>
                   <img src={`${instrument.icon}`} className={`grid-item image ${instrument.name}`} alt={`${instrument.name} not working`}/>
                   <hr className='divider'/>
                   <div className={`grid-item instrument ${instrument.name}`}>{instrument.name}</div>
