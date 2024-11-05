@@ -29,7 +29,18 @@ function Update() {
     }
     }, [])
 
-
+    function formatDate(dateString){
+        const date = new Date(dateString);
+        return date.toLocaleString('en-GB',{
+            day:'2-digit',
+            month:'2-digit',
+            year:'numeric',
+            hour:'2-digit',
+            minute:'2-digit',
+            second:'2-digit',
+            hour12:true
+        })
+    }
 
   return (
     <div className='update-container'>
@@ -44,7 +55,7 @@ function Update() {
                                 {key === 0? (
                                     <div className='new-notice'>NEW</div>
                                 ): (<></>)}
-                                <div className='update-item-date'>Date: {item.dated}</div>
+                                <div className='update-item-date'>Date: {formatDate(item.dated)}</div>
                                 </div>
                             </div>
                         <hr />

@@ -10,7 +10,7 @@ function UpdateRole() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [customer, setCustomer] = useState(null);
-    const [role, setRole] = useState('');
+    const [role, setRole] = useState('Guest');
     // const apiUrl = "http://192.168.31.112:5000";
     const { user } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(true);
