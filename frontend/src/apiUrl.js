@@ -1,3 +1,3 @@
-const apiUrl = 'http://192.168.1.18:5000';
+const apiUrl = 'http://192.168.31.112:5000';
 
 export {apiUrl};

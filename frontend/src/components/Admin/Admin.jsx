@@ -51,7 +51,7 @@ function Admin() {
                 <ul className='option-list'>
                     <li className='option-item'><Link to="/admin/shop" className='admin-link'>Shop</Link></li>
                     <li className='option-item'><Link to="/admin/update" className='admin-link'>Updates</Link></li>
-                    <li className='option-item'><Link to="/admin/lesson" className='admin-link'>Lessons</Link></li>
+                    <li className='option-item'><Link to="/admin/featured-video" className='admin-link'>Featured Video</Link></li>
                     <li className='option-item'><Link to="/admin/update-role" className='admin-link'>Change Role</Link></li>
                 </ul>
             </div>

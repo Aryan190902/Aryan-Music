@@ -3,6 +3,7 @@
     margin:2.5rem 4rem;
     display: flex;
     justify-content: space-between;
+    z-index: 2;
 }
 .homepage h1{
     font-size: 4.2rem;
@@ -30,7 +31,8 @@
 
 .contact-btn{
     color: white;
-    background-color: rgb(154, 1, 1);
+    /* background-color: rgb(154, 1, 1); */
+    background-image: linear-gradient(red, rgb(246, 25, 25));
     width: 10rem;
     height: 4rem;
     border-radius: .7rem;
@@ -66,6 +68,13 @@
 .contact-btn-link{
     text-decoration: none;
     color: white;
+}
+.music-room-3d{
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: auto;
+    z-index: 1;
 }
 
 @media (max-width: 1000px){

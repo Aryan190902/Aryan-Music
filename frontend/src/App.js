@@ -16,7 +16,7 @@ import Update from './components/Update/Update';
 import Admin from './components/Admin/Admin';
 import AdminUpdate from './components/Admin/Update/AdminUpdate';
 import AdminShop from './components/Admin/Shop/AdminShop';
-import AdminLesson from './components/Admin/Lesson/AdminLesson';
+import AdminFeatuedVideo from './components/Admin/FeaturedVideo/AdminFeaturedVideo';
 import UpdateRole from './components/Admin/Roles/UpdateRole';
 import UserList from './components/Admin/Roles/UserList';
 function App() {
@@ -43,7 +43,7 @@ function App() {
               <Route path='/admin' element={<Admin />} />
               <Route path='/admin/update' element={<AdminUpdate />} />
               <Route path='/admin/shop' element={<AdminShop />} />
-              <Route path='/admin/lesson' element={<AdminLesson />} />
+              <Route path='/admin/featured-video' element={<AdminFeatuedVideo />} />
               <Route path='/admin/update-role' element={<UserList />} />
               <Route path='/admin/update-role/:id' element={<UpdateRole /> } />
             </Routes>

@@ -1,9 +1,10 @@
 import React from 'react';
 import './Home.css';
 import Instrument from '../Instruments/Instrument';
+import Video from '../Video/Video';
 function Home() {
   return (
-    <>
+    <div>
     <div className='homepage'>
         <div className='class-name'>
             <h1><span className='name'>Aryan</span><br />Music Academy</h1>
@@ -24,7 +25,8 @@ function Home() {
         <button className='contact-btn'><a href="#contact-section" className='contact-btn-link'>Contact Us</a></button>
     </div>
     <Instrument />
-    </>
+    <Video />
+    </div>
   )
 }
 
