@@ -9,7 +9,7 @@ function Home() {
         <div className='class-name'>
             <h1><span className='name'>Aryan</span><br />Music Academy</h1>
             <div className='description'>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta dolore adipisci distinctio commodi quae, dolores, iure error voluptatibus inventore autem repellat molestias delectus officia, eum atque minima itaque soluta illo!</p>
+              <p style={{fontSize: '1.8rem', fontWeight:'500'}}>Embark on a musical adventure with Aryan Music Academy. Learn, grow, and inspire.</p>
               <p>Timings: Monday - Friday</p>
               <ul>
                   <li className='time1'>Morning: 9am - 11am </li>

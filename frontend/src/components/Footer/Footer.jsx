@@ -9,7 +9,7 @@ function Footer() {
             <div className='footer-content'>
                 <div className='footer-section about'>
                     <h2>About Us</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur iste debitis ad, cumque ea enim atque nemo labore repellat nisi explicabo, numquam omnis velit iusto expedita aliquam eaque recusandae laudantium.</p>
+                    <p>Aryan Music Academy is dedicated to nurturing musical talent. We offer expert instruction in <i>Guitar, Drums, Piano, Octapad, Singing</i> and much more. Join us to explore the world of music.</p>
                 </div>
                 <div className='footer-section contact'>
                     <div className='link'>

@@ -23,7 +23,7 @@
     /* border: .2rem solid white; */
     border-radius: 1rem;
     padding: 2rem;
-    width: max-content;
+    width: 90%;
     /* background-color:#222; */
 }
 
@@ -33,7 +33,7 @@
 }
 
 .embedded-video{
-    width: 100rem;
+    width: 100%;
     border-radius: 1rem;
     border: .1rem solid black;
     box-shadow: 0 0 .5rem .5rem gold;

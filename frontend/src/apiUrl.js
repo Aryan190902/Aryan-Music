@@ -1,3 +1,3 @@
-const apiUrl = 'http://192.168.31.112:5000';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export {apiUrl};
