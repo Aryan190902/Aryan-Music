@@ -10,8 +10,11 @@ const adminRoutes = require('./routes/admin.js');
 const imageRoutes = require('./routes/image.js');
 const updateRoutes = require('./routes/update.js');
 const videoRoutes = require('./routes/video.js');
+const keepAlive = require('./keepAlive.js');
+
 app.use(cors())
 app.use(express.json({extended: false}));
+keepAlive();
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI+"/MainDB", {
   useNewUrlParser: true,
