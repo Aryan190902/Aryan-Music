@@ -1,3 +1,3 @@
-const apiUrl = process.env.REACT_APP_PROXY_URL;
+const apiUrl = process.env.REACT_APP_APP_URL;
 
 export {apiUrl};
