@@ -12,27 +12,43 @@ const updateRoutes = require('./routes/update.js');
 const videoRoutes = require('./routes/video.js');
 const keepAlive = require('./keepAlive.js');
 
-app.use(cors())
+const allowedOrigin = "https://aryanmusic.co.in";
+app.use(cors({
+  origin: function(origin, callback){
+    if(!origin || allowedOrigin === origin){
+      callback(null, true);
+    }
+    else{
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+}))
 app.use(express.json({extended: false}));
 keepAlive();
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI+"/MainDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log('Connected to MongoDB');
-}).catch((error) => {
-  console.error('MongoDB connection error:', error);
-});
+mongoose.connect(process.env.MONGODB_URI+"/MainDB")
+  .then(() => {
+    console.log('Connected to MongoDB');
+  }).catch((error) => {
+    console.error('MongoDB connection error:', error);
+  });
 
 app.get('/', (req, res) => {
   res.send('Hello, MERN!');
 });
+
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api', imageRoutes);
 app.use('/api', updateRoutes);
 app.use('/api', videoRoutes);
+
+app.use(function(err, req, res, next){
+  return res.status(500).json({
+    msg: "server error",
+  });
+})
+
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on port: ${port}`);
 });
