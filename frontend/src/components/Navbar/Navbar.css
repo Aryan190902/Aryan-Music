@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem 2rem;
+  padding: 1rem 2rem;
   background-color: #000;
   /* border-bottom: .1rem solid white; */
 }
@@ -12,7 +12,7 @@
   color: white;
   text-decoration: none;
   padding: 1.2rem 1rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
   transition: transform .1s ease, color .1s ease;
 }
 .navbar a:hover{
@@ -24,8 +24,24 @@
 }
 .navbar-left a {
   margin-right: 2rem;
+  padding: 0 2rem;
 }
-
+.navbar-left a:hover{
+  background-color: black;
+}
+.navbar-left{
+  margin-top: 1rem;
+}
+.logo-img{
+  width: 8rem;
+  border-radius: 1rem;
+  padding: .5rem .5rem;
+  box-shadow: 0rem 0rem 1rem 0rem gray;
+  transition: transform 0.25s ease;
+}
+.logo-img:hover{
+  transform: scale(1.1);
+}
 .navbar-right a {
   margin-left: 2rem;
 }

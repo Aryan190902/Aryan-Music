@@ -14,9 +14,18 @@
 }
 
 .footer-container .footer-content {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 2;
+    /* justify-content: space-around; */
     padding: 1rem 0;
+}
+
+.footer-logo-img{
+    width: 40rem;
+    padding: 2rem;
+    border: .1rem solid white;
+    border-radius: 4rem;
+    margin: 3rem;
 }
 
 .footer-container .footer-section {
@@ -50,6 +59,9 @@
 .footer-container .footer-section.contact{
     font-size: 1.4rem;
 }
+.footer-section.contact{
+    text-align: center;
+}
 .footer-section.contact a{
     margin-left: .5rem;
     color: rgb(246, 42, 42);
@@ -60,6 +72,7 @@
 }
 .footer-section.about {
     padding-top: 0rem;
+    /* text-align: left; */
 }
 .footer-section.about h2{
     font-size: 2.3rem;
@@ -72,6 +85,7 @@
 .link{
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 1.7rem;
 }
 .link.logo{
