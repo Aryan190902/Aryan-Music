@@ -33,8 +33,6 @@ const authReducer = (state, action) => {
   }
 };
 
-// const apiUrl = "http://192.168.31.112:5000";
-
 const AuthProvider = ({ children }) => {
   const initialState = {
     token: localStorage.getItem('token'),
@@ -43,8 +41,11 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(()=>{
-    loadUser();
-  }, []);
+    // to stop loadUser() to be called indefinately.
+    if(initialState.token){
+      loadUser();
+    }
+  }, [initialState.token]);
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
@@ -52,13 +53,17 @@ const AuthProvider = ({ children }) => {
     try{
       const res = await axios.post(`${apiUrl}/api/auth/register`, { name, mobileNo, username, password });
       dispatch({ type: 'REGISTER_SUCCESS', payload: res.data });
-      loadUser();
     } catch(err){
       console.error(err.message);
     }
   };
-
+  let isFetchingUser = false;
   const loadUser = async() => {
+    if(isFetchingUser || !localStorage.token || state.isAuthenticated){ 
+      // state.isAuthenticated stopped the infinite loadUser() calling loop.
+      return;
+    }
+    isFetchingUser = true;
     if (localStorage.token) {
       const config = {
         headers: {
@@ -71,6 +76,8 @@ const AuthProvider = ({ children }) => {
       } catch (err) {
         console.error(err.message);
         dispatch({type: 'AUTH_ERROR'});
+      } finally{
+        isFetchingUser = false;
       }
     }
   };
@@ -79,7 +86,6 @@ const AuthProvider = ({ children }) => {
     try{
       const res = await axios.post(`${apiUrl}/api/auth/login`, { username, password });
       dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
-      loadUser();
     } catch(err){
       console.error(err.message);
       dispatch({type: 'AUTH_ERROR'});
