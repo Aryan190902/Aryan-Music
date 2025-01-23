@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import React, { createContext, useEffect, useReducer, useCallback, useRef } from 'react';
 import axios from 'axios';
 import { apiUrl } from '../../apiUrl'; 
 const AuthContext = createContext();
@@ -40,13 +40,6 @@ const AuthProvider = ({ children }) => {
     user: null,
   };
 
-  useEffect(()=>{
-    // to stop loadUser() to be called indefinately.
-    if(initialState.token){
-      loadUser();
-    }
-  }, [initialState.token]);
-
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   const register = async (name, mobileNo, username, password) => {
@@ -57,13 +50,13 @@ const AuthProvider = ({ children }) => {
       console.error(err.message);
     }
   };
-  let isFetchingUser = false;
-  const loadUser = async() => {
-    if(isFetchingUser || !localStorage.token || state.isAuthenticated){ 
+  let isFetchingUser = useRef(false);
+  const loadUser = useCallback(async() => {
+    if(isFetchingUser.current || !localStorage.token || state.isAuthenticated){ 
       // state.isAuthenticated stopped the infinite loadUser() calling loop.
       return;
     }
-    isFetchingUser = true;
+    isFetchingUser.current = true;
     if (localStorage.token) {
       const config = {
         headers: {
@@ -77,10 +70,10 @@ const AuthProvider = ({ children }) => {
         console.error(err.message);
         dispatch({type: 'AUTH_ERROR'});
       } finally{
-        isFetchingUser = false;
+        isFetchingUser.current = false;
       }
     }
-  };
+  }, [dispatch, state.isAuthenticated]);
 
   const login = async (username, password) => {
     try{
@@ -91,9 +84,14 @@ const AuthProvider = ({ children }) => {
       dispatch({type: 'AUTH_ERROR'});
     }
   };
-
-
   const logout = () => dispatch({ type: 'LOGOUT' });
+
+  useEffect(()=>{
+    // to stop loadUser() to be called indefinately.
+    if(initialState.token){
+      loadUser();
+    }
+  }, [initialState.token, loadUser]);
 
   return (
     <AuthContext.Provider
