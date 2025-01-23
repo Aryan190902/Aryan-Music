@@ -21,29 +21,20 @@ function AdminFeatuedVideo() {
     const [videoUrl, setVideoUrl] = useState("");
 
     useEffect(()=>{
-      const timeout = setTimeout(()=>{
-        if(user === null){
-          setIsLoading(false);
-          setErrMessage("User not logged in.");
-        }
-      }, 5000)
-  
       if(user === null){
-        console.log("Loading...");
-        return;
+        setIsLoading(false);
+        setErrMessage("User not logged in.");
       }
-  
-      if(user){
-        clearTimeout(timeout);
+      else{
         if(user.user.role !== 'Admin'){
           alert("Only Admins can access this page!");
           navigate('/');
         }
         else{
           setIsLoading(false);
+          setErrMessage("");
         }
       }
-      return () => clearTimeout(timeout);
     }, [user, navigate])
   
     if(isLoading){
@@ -95,28 +86,25 @@ function AdminFeatuedVideo() {
     }
 
     return (
-      <>
-        <div className='admin-featured-video-container'>
-          <div>
-            <form onSubmit={handleSubmit} className='admin-featured-video-form-container'>
-              <div className='video-names'>
-                <label>Names:</label>
-                <input type="text" placeholder='Names of people in the video' name="name" value={name} onChange={(e) => setName(e.target.value)} required className='admin-featured-video-input' />
-              </div>
-              <div className='video-upload'>
-                <label>Video:</label>
-                <input type="file" name="video" onChange={handleVideoChange} required className='admin-featured-video-input' />
-              </div>
-              <div className='admin-featured-video-btn'>
-                <button type="submit" className='admin-featured-video-form-btn'>Upload</button>
-              </div>
-            </form>
-            {videoUrl && <video src={videoUrl} controls alt='Uploaded' className='uploaded-video'/>}
-          </div>
-          <button onClick={handleGoBack} className='goBack-btn'>Go Back</button>
+      <div className='admin-featured-video-container'>
+        <div>
+          <form onSubmit={handleSubmit} className='admin-featured-video-form-container'>
+            <div className='video-names'>
+              <label>Names:</label>
+              <input type="text" placeholder='Names of people in the video' name="name" value={name} onChange={(e) => setName(e.target.value)} required className='admin-featured-video-input' />
+            </div>
+            <div className='video-upload'>
+              <label>Video:</label>
+              <input type="file" name="video" onChange={handleVideoChange} required className='admin-featured-video-input' />
+            </div>
+            <div className='admin-featured-video-btn'>
+              <button type="submit" className='admin-featured-video-form-btn'>Upload</button>
+            </div>
+          </form>
+          {videoUrl && <video src={videoUrl} controls alt='Uploaded' className='uploaded-video'/>}
         </div>
-        
-      </>
+        <button onClick={handleGoBack} className='adminVideo-goBack-btn'>Go Back</button>
+      </div>
     )
 }
 

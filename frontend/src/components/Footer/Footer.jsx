@@ -8,7 +8,7 @@ function Footer() {
             <h1>Contact Us</h1>
             <div className='footer-content'>
                 <div>
-                    <img src='assets/logo2-removed.png' alt="Logo" className='footer-logo-img'/>
+                    <img src='/assets/logo2-removed.png' alt="Logo" className='footer-logo-img'/>
                 </div>
                 <div>
                     <div className='footer-section about'>
@@ -20,13 +20,13 @@ function Footer() {
                             <p>Social Media: </p>
                             <a href="https://wa.me/9826636250"
                                 target='_blank'
-                                rel='noopener noreferrer'><img src="assets/whatsapp.png" alt="Whatsapp" className='link logo'/></a>
+                                rel='noopener noreferrer'><img src="/assets/whatsapp.png" alt="Whatsapp" className='link logo'/></a>
                             <a href="https://www.instagram.com/aryanmusicacademy/"
                                 target='_blank'
-                                rel='noopener noreferrer'><img src="assets/instagram.png" alt="Instagram" className='link logo'/></a>
+                                rel='noopener noreferrer'><img src="/assets/instagram.png" alt="Instagram" className='link logo'/></a>
                             <a href="https://www.youtube.com/@aryanmusicacademy4986"
                                 target='_blank'
-                                rel='noopener noreferrer'><img src="assets/youtube.png" alt="Youtube" className='link logo'/></a>
+                                rel='noopener noreferrer'><img src="/assets/youtube.png" alt="Youtube" className='link logo'/></a>
                         </div>
                         <p>Email: <a href="mailto:aryanmusicofficialujn@gmail.com">Click here</a></p>
                     </div>

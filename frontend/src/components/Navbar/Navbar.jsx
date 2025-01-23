@@ -17,7 +17,7 @@ const Navbar = () => {
         <nav>
           <div className='navbar'>
             <div className='navbar-left'>
-              <Link to="/"><img src="assets/logo2-removed.png" alt="Logo" className='logo-img'/></Link>
+              <Link to="/"><img src="/assets/logo2-removed.png" alt="Logo" className='logo-img'/></Link>
             </div>
             <button className='navbar-toggle' onClick={toggleMenu}>☰</button>
             <div className={`navbar-right ${isOpen?'open':''} `}>

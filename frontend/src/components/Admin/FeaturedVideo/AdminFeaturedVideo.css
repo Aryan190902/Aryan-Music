@@ -54,6 +54,20 @@
     background-color: rgb(200,0,0);
 }
 
+.adminVideo-goBack-btn{
+    background-color: #111;
+    color: red;
+    border: .2rem solid red;
+    border-radius: .5rem;
+    font-weight: 600;
+    height: 3rem;
+    font-size: 1.5rem;
+}
+.adminVideo-goBack-btn:hover{
+    color: white;
+    background-color: rgb(161, 2, 2);
+}
+
 .video-names, .video-upload{
     display: flex;
     justify-content: center;

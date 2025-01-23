@@ -8,32 +8,21 @@ function Admin() {
   const { user } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
   const [errMessage, setErrMessage] = useState("");
-
   useEffect(()=>{
-
-    const timeout = setTimeout(()=>{
-      if(user === null){
-        setIsLoading(false);
-        setErrMessage("User not logged in.");
-      }
-    }, 5000)
-
     if(user === null){
-      console.log("Loading...");
-      return;
+      setIsLoading(false);
+      setErrMessage("User not logged in.");
     }
-
-    if(user){
-      clearTimeout(timeout);
+    else if(user){
       if(user.user.role !== 'Admin'){
         alert("Only Admins can access this page!");
         navigate('/');
       }
       else{
         setIsLoading(false);
+        setErrMessage("");
       }
     }
-    return () => clearTimeout(timeout);
   }, [user, navigate])
 
   if(isLoading){
