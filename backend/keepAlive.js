@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const keepAlive = () => {
-  const SELF_URL = "https://api-aryan-music.onrender.com/";
+  const SELF_URL = process.env.BACKEND_URL;
   const PING_INTERVAL = 14 * 60 * 1000; // 14 minutes
 
   setInterval(async () => {
