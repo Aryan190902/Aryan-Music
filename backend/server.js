@@ -11,8 +11,10 @@ const imageRoutes = require('./routes/image.js');
 const updateRoutes = require('./routes/update.js');
 const videoRoutes = require('./routes/video.js');
 const keepAlive = require('./keepAlive.js');
+const lessonRoutes = require('./routes/lesson.js');
 
 const allowedOrigin = "https://aryanmusic.co.in";
+// const allowedOrigin = ["https://aryanmusic.co.in", "http://localhost:3000", "http://ip_address:3000"];
 app.use(cors({
   origin: function(origin, callback){
     if(!origin || allowedOrigin === origin){
@@ -42,6 +44,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api', imageRoutes);
 app.use('/api', updateRoutes);
 app.use('/api', videoRoutes);
+app.use('/api', lessonRoutes);
 
 app.use(function(err, req, res, next){
   return res.status(500).json({

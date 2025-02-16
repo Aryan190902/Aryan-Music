@@ -27,7 +27,7 @@ const Navbar = () => {
               <Link to="/cart">Cart</Link>
               {isAuthenticated ?(
                 <div className='new-options'>
-                  {/* <Link to="#">Lessons</Link> */}
+                  <Link to="/lessons">Lessons</Link>
                   {/* <Link to="#">Forum</Link> */}
                   <Link to="/updates">Updates</Link>
                    <div className='profile'>

@@ -32,7 +32,6 @@ router.post('/register', async(req, res) => {
             res.json({token});
         });
     } catch(err){
-        console.error(err.message);
         res.status(500).send('Server error');
     }
 });
@@ -61,7 +60,6 @@ router.post('/login', async(req, res) => {
             res.json({token});
         });
     } catch(err){
-        console.log(err.message);
         res.status(500).send('Server error');
     }
 });
@@ -75,13 +73,11 @@ router.get('/user', authMiddleware, async(req, res) => {
         }
         res.json({user});
     } catch(err){
-        console.error(err.message);
         res.status(500).send('Server Error');
     }
 })
 
 router.get('/test', async(req, res) => {
-    console.log("It is working!")
     res.json({msg: 'It is working!'})
 })
 

@@ -33,7 +33,6 @@ router.post('/upload', upload.single('image'), async (req, res) => {
       item: newItem // The URL to access the uploaded image
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ error: 'Failed to upload item' });
   }
 });
@@ -43,7 +42,6 @@ router.get('/shop-items', async (req, res) => {
       const shopItems = await ShopData.find();
       res.json(shopItems); // Respond with the shop items from MongoDB
   } catch (err) {
-      console.error(err.message);
       res.status(500).json({ error: 'Server Error' });
   }
 });
