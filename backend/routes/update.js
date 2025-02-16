@@ -8,7 +8,6 @@ router.get('/updates', authMiddleware, async (req, res) => {
         const updates = await UpdateData.find().sort({dated: -1});
         res.json(updates);
     }catch(err){
-        console.error(err.message);
         res.status(500).send("Server Error");
     }
 })

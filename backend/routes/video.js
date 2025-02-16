@@ -15,7 +15,6 @@ router.post('/upload-featured-video', upload.single('video'), async (req, res) =
 
         const {name} = req.body;
         // Upload the video file to Cloudinary
-        console.log("Updating with: ", req.body)
         const result = await cloudinary.uploader.upload(req.file.path, {
             folder: 'music_class_video', // Folder to organize videos
             resource_type: 'video', // Specify it's a video upload
@@ -39,7 +38,6 @@ router.post('/upload-featured-video', upload.single('video'), async (req, res) =
         );
         for (const video of videosToDelete) {
             await cloudinary.uploader.destroy(video.public_id, { resource_type: 'video' });
-            console.log('Deleted Video:', video.public_id);
         }
 
         // Respond with the uploaded video details
@@ -48,7 +46,6 @@ router.post('/upload-featured-video', upload.single('video'), async (req, res) =
             video: updatedVideo,
         });
     } catch (err) {
-        console.error('Error during upload or cleanup:', err);
         res.status(500).json({ message: 'Failed to upload video or delete old videos.' });
     }
 });
@@ -60,7 +57,6 @@ router.get('/get-featured-video', async (req, res) => {
         }
         res.json(featuredVideo);
     } catch (err) {
-        console.error('Error fetching featured video:', err);
         res.status(500).json({ message: 'Failed to fetch featured video.' });
     }
 });

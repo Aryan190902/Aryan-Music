@@ -19,6 +19,10 @@ import AdminShop from './components/Admin/Shop/AdminShop';
 import AdminFeatuedVideo from './components/Admin/FeaturedVideo/AdminFeaturedVideo';
 import UpdateRole from './components/Admin/Roles/UpdateRole';
 import UserList from './components/Admin/Roles/UserList';
+import Lesson from './components/Lesson/Lesson';
+import ViewLesson from './components/Lesson/ViewLesson';
+import AdminLessons from './components/Admin/Lessons/Lessons';
+import ViewAdminLesson from './components/Admin/Lessons/ViewLesson';
 function App() {
 
   const { loadUser } = useContext(AuthContext);
@@ -39,12 +43,16 @@ function App() {
               <Route path='/signup' element={< Signup/>}/>
               <Route path='/shop' element={<Shop />} />
               <Route path='/cart' element={<Cart />} />
+              <Route path='/lessons' element={<Lesson />} />
+              <Route path='/lessons/:id' element={<ViewLesson />} />
               <Route path='/updates' element={<Update />} />
               <Route path='/admin' element={<Admin />} />
               <Route path='/admin/update' element={<AdminUpdate />} />
               <Route path='/admin/shop' element={<AdminShop />} />
               <Route path='/admin/featured-video' element={<AdminFeatuedVideo />} />
               <Route path='/admin/update-role' element={<UserList />} />
+              <Route path='/admin/lessons' element={<AdminLessons />} />
+              <Route path='/admin/lessons/:id' element={< ViewAdminLesson/>} />
               <Route path='/admin/update-role/:id' element={<UpdateRole /> } />
             </Routes>
             <Footer />
