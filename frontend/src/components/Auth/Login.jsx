@@ -4,6 +4,8 @@ import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
+import { toast } from 'react-toastify';
+
 const Login= () => {
 
   const {login} = useContext(AuthContext);
@@ -19,9 +21,21 @@ const Login= () => {
   const onSubmit = async e => {
     e.preventDefault();
     if(!username || !password)  return console.error({msg: "Username or password is null"})
-    await login(username, password);
-    console.log("User Logged in!")
-    navigate('/');
+    try{
+      await login(username, password);
+      console.log("User Logged in!")
+      navigate('/');
+    }catch(err){
+      toast.error("Error logging in!",{
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   }
 
   return (

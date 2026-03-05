@@ -3,6 +3,8 @@ import './Signup.css';
 import {Link} from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 const Signup= () => {
 
   const navigate =  useNavigate();
@@ -20,8 +22,20 @@ const Signup= () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await register(name, mobileNo, username, password);
-    navigate('/');
+    try{
+      await register(name, mobileNo, username, password);
+      navigate('/');
+    }catch(err){
+      toast.error("Error signing up!",{
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   }
 
   return (

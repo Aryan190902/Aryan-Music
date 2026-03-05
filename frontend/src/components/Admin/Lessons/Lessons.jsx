@@ -14,6 +14,7 @@ function Lessons() {
     const [file, setFile] = useState(null);
     const getLessons = useCallback(async () => {
         try {
+            setIsLoading(true);
             const config = {
                 headers: {
                     'Authorization': `Bearer ${localStorage.token}`,
@@ -24,14 +25,14 @@ function Lessons() {
             setLessons(res.data.lessons);
         } catch (error) {
             console.error('Error fetching lessons:', error);
+        } finally{
+            setIsLoading(false);
         }
     }, []);
 
     // Fetch lessons when the component mounts
     useEffect(() => {
-        setIsLoading(true);
         getLessons();
-        setIsLoading(false);
     }, [getLessons]);
 
     // Debouncing

@@ -5,9 +5,11 @@ const router = express.Router();
 const upload = require('../multerConfig'); // Multer middleware for handling form-data
 const FeaturedVideoData = require('../models/FeaturedVideo');
 const fs = require('fs');
+const authMiddleware = require('../middleware/auth');
+const roleMiddleware = require('../middleware/role');
 
 // POST route for uploading a video
-router.post('/upload-featured-video', upload.single('video'), async (req, res) => {
+router.post('/upload-featured-video', authMiddleware, roleMiddleware(['Admin']), upload.single('video'), async (req, res) => {
     try {
         if (!req.file) {
             return res.status(400).json({ message: 'No video file uploaded.' });
