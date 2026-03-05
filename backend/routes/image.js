@@ -4,8 +4,10 @@ const cloudinary = require('../cloudinaryConfig');
 const upload = require('../multerConfig'); // Multer middleware for handling form-data
 const fs = require('fs');
 const ShopData = require('../models/Shop');
+const authMiddleware = require('../middleware/auth');
+const roleMiddleware = require('../middleware/role');
 // POST route for uploading an image
-router.post('/upload', upload.single('image'), async (req, res) => {
+router.post('/upload', authMiddleware, roleMiddleware(['Admin']), upload.single('image'), async (req, res) => {
   try {
     // Upload the image file to Cloudinary
     const {name, Price, tag, condition, stock} = req.body;

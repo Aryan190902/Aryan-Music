@@ -48,6 +48,7 @@ const AuthProvider = ({ children }) => {
       dispatch({ type: 'REGISTER_SUCCESS', payload: res.data });
     } catch(err){
       console.error(err.message);
+      throw err;
     }
   };
   let isFetchingUser = useRef(false);
@@ -82,6 +83,7 @@ const AuthProvider = ({ children }) => {
     } catch(err){
       console.error(err.message);
       dispatch({type: 'AUTH_ERROR'});
+      throw err;
     }
   };
   const logout = () => dispatch({ type: 'LOGOUT' });

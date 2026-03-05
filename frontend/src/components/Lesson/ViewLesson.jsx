@@ -11,24 +11,24 @@ function ViewLesson() {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         setIsLoading(true);
-        try{
-            const getLesson = async () =>{
-                const config = {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.token}`,
-                    },
-                };
+        const getLesson = async () =>{
+            const config = {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.token}`,
+                },
+            };
+            try{
                 const res = await axios.get(`${apiUrl}/api/lesson/${id}`, config);
                 const url = res.data.lesson.lesson_url;
                 setLesson(res.data.lesson);
                 setLessonUrl(url);
-            } 
-            getLesson();
-        }catch(err){
-            console.error("Error while fetching lesson:", err);
-        }finally{
-            setIsLoading(false);
-        }
+            }catch(err){
+                console.error("Error while fetching lesson:", err);
+            }finally{
+                setIsLoading(false);
+            }
+        } 
+        getLesson();
     }, [id]);
     return (
         <div className="viewLesson-container">
@@ -40,7 +40,6 @@ function ViewLesson() {
                             src={`${lessonUrl}#toolbar=0`} 
                             title={`Lesson: ${id}`}
                             className="lesson-pdf-viewer"
-                            onLoad={() => setIsLoading(false)}
                         />)
                     }
                 </div>

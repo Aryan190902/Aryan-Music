@@ -4,27 +4,27 @@ const bycrypt = require('bcryptjs')
 const UserSchema = new mongoose.Schema({
     name:{
         type: String,
-        require: true
+        required: true
     },
     mobileNo:{
         type: String,
-        require: true,
+        required: true,
         match: [/^\+?[1-9]\d{1,14}$/, "Please enter a valid mobile number."]
     },
     username: {
         type: String,
-        require: true,
+        required: true,
         unique: true,
     },
     password:{
         type: String,
-        require: true
+        required: true
     },
     role:{
         type: String,
         enum: ['Admin', 'Student', 'Guest'],
         default: 'Guest',
-        require: true,
+        required: true,
     },
     createdAt:{
         type: Date,

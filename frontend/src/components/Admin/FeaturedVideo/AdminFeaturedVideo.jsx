@@ -55,9 +55,24 @@ function AdminFeatuedVideo() {
       formData.append('name', name);
       formData.append('video', video);
       try{
+        if(!localStorage.getItem('token')){
+          toast.error("Please login to upload!",{
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          navigate('/login');
+          return;
+        }
+
         const res = await axios.post(`${apiUrl}/api/upload-featured-video`, formData, {
           headers: {
-            'Content-Type' : 'multipart/form-data'
+            'Content-Type' : 'multipart/form-data',
+            'Authorization': `Bearer ${localStorage.token}`
           }
         })
         setVideoUrl(res.data.video.videoUrl);
